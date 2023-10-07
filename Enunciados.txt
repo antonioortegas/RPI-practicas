@@ -1,0 +1,63 @@
+1.  Escribe un programa que encienda el primer led VERDE de la placa de expansión.
+
+2.  En el arranque, dejará encendidos los dos LEDs verdes.
+    A continuación, quedará sondeando la pulsación de cualquiera de los dos botones
+    Cada vez que se pulse un botón, se quedará encendido el LED del mismo lado y se apagará el otro.
+
+3.  Ahora, modifica el programa 1 para crear el nuevo.
+    Se alterna el encendido y apagado del led verde.
+    ¿Funciona como debería?.
+
+4.  Ejer4.s: Modifica el ejercicio anterior, leyendo el contador del timer para
+    controlar el tiempo transcurrido, alterna el encendido y apagado.
+
+5.  Modifica el 4 para que genere la nota "Re"
+
+6.  Modifica 4 para que el LED pase por una cadencia de 1 seg.
+    encendido y 1 seg. apagado, luego 500 ms. y seguidamente 250 ms., y
+    vuelve a repetir esta secuencia de cadencias de manera indefinida.
+
+7.  Escribe un programa que sondee si se ha pulsado el botón 1 o el botón 2. En caso de que se haya pulsado el primero,
+    se generará un sonido correspondiente a la nota Do.
+    Si por el contrario se pulsa el segundo, se generará un sonido correspondiente a lanota Sol.
+
+8.  Crea un nuevo programa que configure el timer para que
+    transcurridos 3 segundos se produzca una IRQ cuya rutina de servicio encienda el
+    LED asociado al GPIO 22.
+
+9.  Prepara un código que haga parpadear el LED asociado al
+    GPIO22 usando interrupciones.
+
+10. El nuevo código, basado en el ejercicio anterior, hará parpadear los 6 leds
+    simultáneamente.
+
+11. El nuevo código, basado en el ejercicio anterior, hará parpadear los 6 leds uno
+    detrás de otro en secuencia indefinidamente.
+
+12. El código dejará encendidos los dos LEDs verdes. La
+    pulsación de cualquiera de los dos botones provocará una IRQ, cuyo servicio
+    consistirá en determinar cuál de los botones ha sido pulsado y encender sólo el LED
+    rojo del mismo lado, apagándose el otro.
+
+13. En este ejercicio vamos trabajar simultáneamente con las IRQs de los comparadores
+    C1 y C3 del timer. Con C1 controlaremos el encendido consecutivo de los 6 LEDs con
+    una cadencia de 200msg. Con C3 controlaremos el altavoz para que se produzca un sonido con
+    una la nota "LA".
+
+14. Este ejercicio es similar al anterior pero el encendido de cada LED tendrá asociado un
+    sonido simultáneo distinto. Para ello ahora vamos a utilizar además de la IRQ, una FIQ,
+    de manera que las rutinas de tratamiento serán independientes. C1, que controla el
+    encendido sucesivo de los 6 LEDs, interrumpirá con una IRQ, mientras que C3, que
+    controla el altavoz, lo hará con una FIQ. Le damos más prioridad a C3 porque es la
+    interrupción que se va a producir con más frecuencia. Los LEDs se mantendrán
+    encendidos durante 500msg La secuencia de notas que sonará será: Re Re Mi Re Sol
+    Fa# Re Re Mi Re La Sol Re Re Re' Si Sol Fa# Mi Do' Do' Si Sol La Sol.
+    Las frecuencia de las notas son las siguientes:
+    La  440 Hz
+    Si  494 Hz
+    Mi  330 Hz
+    Sol 392 Hz
+    Re  293 Hz
+    Fa# 370Hz
+    Re’ 587 Hz
+    Do’ 523 Hz 
